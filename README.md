@@ -7,9 +7,9 @@ A simple and rather unsafe Login functionality was implemented using Higher Orde
 Speaker's data is fetched from local server using NextJs's api routes.
 
 Built with -
- -NextJs
- -BootStrap v5.3
- -Icons from font Awesome
+- NextJs
+- BootStrap v5.3
+- Icons from font Awesome
 
 #### Resources:
 ##### Peter Kellner - [Pluralsight Course on React](https://app.pluralsight.com/library/courses/react-components-designing/table-of-contents).
