@@ -1,17 +1,21 @@
 import Header from './Header'
 import Speakers from './Speakers';
 import Layout from './Layout';
+import { AuthProvider } from '../contexts/AuthContext';
 
 
 function App() {
 
     return (
-        <Layout startingTheme="light">
-            <div>
-                <Header />
-                <Speakers />
-            </div>
-        </Layout>
+        //setting logged in user to a default value, assuming a user was already signed in on page load
+        <AuthProvider initialLoggedInUser="Harry"> 
+            <Layout startingTheme="light"> 
+                <div>
+                    <Header />
+                    <Speakers />
+                </div>
+            </Layout>
+        </AuthProvider>
     )
 }
 

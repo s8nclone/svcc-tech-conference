@@ -129,7 +129,7 @@ footer .border {
 .toolbar {
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
-    margin: 0px 0 20px;
+    margin: 0px auto 20px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -577,6 +577,20 @@ input:checked + .switch:before {
 
 .action .fa-angle-down {
     font-size: 16px;
+}
+
+.btn-primary {
+    background-color: #51b5b1 !important;
+    width: 70px !important;
+}
+
+.btn-secondary {
+    background-color: #66ade1 !important;
+}
+
+.btn {
+    outline: none !important;
+    border: none !important;
 }
 
 .btn-load {
@@ -1151,7 +1165,7 @@ input:checked + .switch:before {
 }
 
 .card-height {
-    height: 520px;
+    height: 550px;
 }
 
 .blue-btn {

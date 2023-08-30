@@ -182,8 +182,8 @@ function Speaker(props) {
 }
 
 //function that checks if the previous value to the next/current value and returns a boolean
-function favoriteSpeakerToggled(prevProvs, nextProps) {
-    return (prevProvs.speaker.favorite === nextProps.speaker.favorite);
+function favoriteSpeakerToggled(prevProps, nextProps) {
+    return (prevProps.speaker.favorite === nextProps.speaker.favorite);
 }
 
 export default Speaker
