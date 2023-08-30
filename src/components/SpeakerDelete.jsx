@@ -1,9 +1,12 @@
 import { useContext } from "react"
 import { SpeakerContext } from "../contexts/SpeakerContext"
+import withAuth from "./withAuth"
 
-function SpeakerDelete() {
+function SpeakerDelete({ loggedInUser }) {
 
     const { speaker, deleteRecord } = useContext(SpeakerContext);
+
+    if (!loggedInUser || loggedInUser.length === 0) return null;
 
   return (
     <span className="session w-100">
@@ -24,4 +27,4 @@ function SpeakerDelete() {
   )
 }
 
-export default SpeakerDelete
+export default withAuth(SpeakerDelete)

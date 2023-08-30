@@ -947,23 +947,6 @@ input:checked + .switch:before {
         margin-left: -30px;
     }
 
-    .links,
-    .video-sec,
-    .foter-logo {
-        max-width: 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
-        padding: 20px 0;
-    }
-
-    .foter-logo img {
-        width: auto;
-    }
-
-    .footer-p {
-        padding: 0 20px;
-    }
-
     .fav-card {
         width: 100%;
     }
@@ -1040,10 +1023,6 @@ input:checked + .switch:before {
 
     .toolrow {
         padding: 0 15px;
-    }
-
-    .main-footer {
-        padding: 0 20px;
     }
 
     header {
@@ -1191,4 +1170,9 @@ input:checked + .switch:before {
 
 .h-250 {
     height: 249.5;
+}
+
+.placeholder-list {
+    max-width: 70%;
+    padding: 0px 150px;
 }

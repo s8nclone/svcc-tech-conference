@@ -1,10 +1,11 @@
 import Speaker from './Speaker'
-import ReactPlaceholder from 'react-placeholder'
 import useRequestRest, { REQUEST_STATUS } from '../hooks/useRequestRest'
 import { data } from "../../SpeakerData"
 import { SpeakerFilterContext } from '../contexts/SpeakerFilterContext'
 import { useContext } from 'react'
 import SpeakerAdd from './SpeakerAdd'
+import LoadingPlaceholder from './LoadingPlaceholder'
+
 
 function SpeakersList() {
 
@@ -28,43 +29,38 @@ function SpeakersList() {
     }
 
     // if (isLoading === true) return <div>Loading...</div>
+    if (requestStatus === REQUEST_STATUS.LOADING) {
+        return <LoadingPlaceholder />;
+    }
 
     return (
         <div className="container speakers-list">
-            <ReactPlaceholder
-                type="media"
-                rows={10}
-                className="speakerslist-placeholder"
-                ready={requestStatus === REQUEST_STATUS.SUCCESS}
-                // color="black"
-            >
-                <SpeakerAdd eventYear={eventYear} insertRecord={insertRecord} />
-                <div className="row">
-                    {speakersData.filter((speaker)=> {
-                        return (
-                            speaker.first.toLowerCase().includes(searchQuery) ||
-                            speaker.last.toLowerCase().includes(searchQuery)
-                        )
-                    })
-                    .filter((speaker)=> {
-                        return speaker.sessions.find((sessions)=>{
-                            return sessions.eventYear === eventYear;
-                        });
-                    })
-                    .map((speaker)=> {
+            <SpeakerAdd eventYear={eventYear} insertRecord={insertRecord} />
+            <div className="row">
+                {speakersData.filter((speaker)=> {
+                    return (
+                        speaker.first.toLowerCase().includes(searchQuery) ||
+                        speaker.last.toLowerCase().includes(searchQuery)
+                    )
+                })
+                .filter((speaker)=> {
+                    return speaker.sessions.find((sessions)=>{
+                        return sessions.eventYear === eventYear;
+                    });
+                })
+                .map((speaker)=> {
 
-                        return (
-                            <Speaker key={speaker.id} 
-                                speaker={speaker}
-                                updateRecord={updateRecord}
-                                insertRecord={insertRecord}
-                                deleteRecord={deleteRecord}
-                            />
-                        )
-                    })}
-                    
-                </div>
-            </ReactPlaceholder>
+                    return (
+                        <Speaker key={speaker.id} 
+                            speaker={speaker}
+                            updateRecord={updateRecord}
+                            insertRecord={insertRecord}
+                            deleteRecord={deleteRecord}
+                        />
+                    )
+                })}
+                
+            </div>
         </div>
     )
 }
